@@ -1,0 +1,755 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a dev Picnic App server.",
+    "version": "1.0.0",
+    "title": "Darahem APP",
+    "termsOfService": " ",
+    "contact": {
+      "mobile": "testkiplinfo@gmail.com"
+    }
+  },
+  "host": "192.168.0.131:8085",
+  "basePath": "/app",
+  "tags": [
+    {
+      "name": "user",
+      "description": "Everything about user",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": ""
+      }
+    },
+    {
+      "name": "card",
+      "description": "Everything about card",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": ""
+      }
+    },
+    {
+      "name": "bank",
+      "description": "Everything about card",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": ""
+      }
+    },
+    {
+      "name": "outlets",
+      "description": "Everything about outlets",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": ""
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "login",
+        "description": "login",
+        "operationId": "login",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Request body  {\"email\":\"test2@example.com\", \"password\":\"123456\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/changePassword": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "changePassword",
+        "description": "changePassword",
+        "operationId": "changePassword",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  {  \"oldpassword\":\"123456\",\"password\":\"123456\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/editProfile": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "editProfile",
+        "description": "editProfile",
+        "operationId": "editProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "name",
+            "description": "name",
+            "required": false,
+            "type": "string",
+            "in": "formData"
+          },
+          {
+            "name": "profile_image",
+            "description": "profile_image",
+            "required": false,
+            "type": "string",
+            "in": "formData"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+
+    "/signup": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "signup",
+        "description": "signup",
+        "operationId": "signup",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "otp",
+            "description": "otp",
+            "required": false,
+            "type": "string",
+            "in": "formData"
+          },  {
+            "name": "email",
+            "description": "email",
+            "required": true,
+            "type": "string",
+            "in": "formData"
+          },
+          {
+            "name": "password",
+            "description": "password",
+            "required": true,
+            "type": "string",
+            "in": "formData"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+
+      "/forget_password": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "forget_password",
+        "description": "forget_password",
+        "operationId": "forget_password",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "otp",
+            "description": "otp",
+            "required": false,
+            "type": "string",
+            "in": "formData"
+          },  {
+            "name": "email",
+            "description": "email",
+            "required": true,
+            "type": "string",
+            "in": "formData"
+          },
+          {
+            "name": "password",
+            "description": "password",
+            "required": false,
+            "type": "string",
+            "in": "formData"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+
+
+    "/cards/{card_id}": {
+      "get": {
+        "tags": [
+          "card"
+        ],
+        "summary": "get  a card",
+        "description": "get  a card",
+        "operationId": "getcard",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "card_id",
+            "description": "card_id ",
+            "required": false,
+            "type": "string",
+            "in": "path"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/cards/type/{type}": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "card list",
+        "description": "card list",
+        "operationId": "cardlist",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "description": "card type id ",
+            "required": true,
+            "type": "string",
+            "in": "path"
+          },
+          {
+            "name": "body",
+            "description": "Request body  {\"order\":\"cardname,desc\", \"bank\":\"1,2\",\"page\":0, \"limit\":3}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/cards/types": {
+      "get": {
+        "tags": [
+          "card"
+        ],
+        "summary": "mark game viewed",
+        "description": "mark game viewed",
+        "operationId": "servicetypes",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/banks": {
+      "get": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "mark bank viewed",
+        "description": "mark bank viewed",
+        "operationId": "viewbank",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/outlets": {
+      "get": {
+        "tags": [
+          "outlets"
+        ],
+        "summary": "mark outlets viewed",
+        "description": "mark outlets viewed",
+        "operationId": "viewoutlets",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/check_eligibility": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "check eligibility",
+        "description": "check eligibility",
+        "operationId": "check eligibility",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  {  \"bank_id\":\"44\",\"card_id\":\"33\",\"company_name\":\"konstant\",\"employment_type\":\"goverment-employee\",\"month_salary\":\"20000\",\"salary_bank_id\":\"78\",\"existing_card_bank_id\":\"30\",\"age\":\"40\",\"date_of_birth\":\"2002-10-23\",\"name\":\"check\",\"mobile\":\"9988112233\",\"email\":\"test1@gmail.com\",\"status\":\"1\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/fav_unfav": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "Favourite Unfavourite",
+        "description": "Favourite Unfavourite",
+        "operationId": "Favourite Unfavourite",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  { \"user_id\":\"2\",\"bank_id\":\"44\",\"card_id\":\"33\",\"status\":\"0\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/rate_review": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "rate review",
+        "description": "rate review",
+        "operationId": "rate review",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  {  \"bank_id\":\"44\",\"card_id\":\"33\",\"type\":\"rate_bank\",\"rate\":\"4\",\"review\":\"hi test review here\",\"status\":\"1\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/rate_review_listing/{card_id}": {
+      "get": {
+        "tags": [
+          "card"
+        ],
+        "summary": "rate review listing",
+        "description": "rate review listing",
+        "operationId": "rate review listing",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "card_id",
+            "description": "card id ",
+            "required": true,
+            "type": "string",
+            "in": "path"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+    "/add_remove_whishlist": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "add remove whishlist",
+        "description": "add remove whishlist",
+        "operationId": "add remove whishlist",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  { \"user_id\":\"2\",\"bank_id\":\"44\",\"card_id\":\"33\",\"status\":\"0\"}",
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+      "/apply_card": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "apply card",
+        "description": "apply card",
+        "operationId": "apply card",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          },
+          {
+            "name": "body",
+            "description": "Request body  { \"bank_id\":\"51\",\"card_id\":\"48\",\"user_id\":\"6\",\"designation\":\"dev\",\"office_name\":\"konstant infosolution\",\"office_address\":\"Sodala\",\"mobile\":\"909803089\",\"office_pan_no\":\"3242431414\",\"subscription\":\"true\",\"first_name\":\"satish\",\"last_name\":\"b\",\"gender\":\"male\",\"email\":\"test@example.com\",\"last_qualification\":\"btech\",\"house_number\":\"sector 41 H.n.c-1\",\"city_name\":\"jaipur\",\"pin_code\":\"499489\",\"state\":\"raj\",\"pan_no\":\"3242431414\",\"status\":\"0\"}",    
+            "required": true,
+            "type": "string",
+            "in": "body"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    },
+     "/my_applications": {
+      "post": {
+        "tags": [
+          "card"
+        ],
+        "summary": "my applications",
+        "description": "my applications",
+        "operationId": "my applications",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ssid",
+            "description": "ssid",
+            "required": true,
+            "type": "string",
+            "in": "header"
+          }
+         
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success message"
+          },
+          "201": {
+            "description": "Bad Request"
+          },
+          "203": {
+            "description": "Error message"
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  
+  "securityDefinitions": {},
+  "definitions": {}
+}
